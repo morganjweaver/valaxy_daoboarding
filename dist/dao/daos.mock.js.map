@@ -1,0 +1,1 @@
+{"version":3,"file":"daos.mock.js","sourceRoot":"","sources":["../../src/dao/daos.mock.ts"],"names":[],"mappings":";;;AAAa,QAAA,IAAI,GAAG;IAChB;QACI,EAAE,EAAE,KAAK;QACT,IAAI,EAAE,eAAe;QACrB,WAAW,EAAE,2FAA2F;QACxG,OAAO,EAAE,CAAC,CAAC,EAAC,CAAC,EAAC,CAAC,CAAC;KAEnB;CACJ,CAAC"}
