@@ -24,7 +24,7 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+HackMoney 2022 Team Valaxy project: DeFi/Web3 UNiversity.  Play to earn on the Oasis Paratime EVM. 
 
 ## Installation
 
