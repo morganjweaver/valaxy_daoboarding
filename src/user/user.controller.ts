@@ -12,18 +12,18 @@ export class UserController {
     }
 
     @Get(':id')
-    public async getUser(@Param('id') id: string) {
+    public async getUser(@Param('id') id: number): Promise<any> {
         return this.userService.getUser(id);
     }
     
     @Put(':id')
-    public putQuizComplete(@Param('id') id: string, @Query() query) {
-        const quizId = query.property_name;
+    public putQuizComplete(@Param('id') id: number, @Query() query) {
+        const quizId = Number(query.property_name);
         return this.userService.putQuizComplete(id, quizId);
     }
 
     @Delete(':id')
-    public deleteUser(@Param('id') id: string) {
+    public deleteUser(@Param('id') id: number) {
         return this.userService.deleteUser(id);
         
     }

@@ -4,20 +4,12 @@ export declare class UserController {
     private userService;
     constructor(userService: UserService);
     getUsers(): Promise<{
-        id: string;
+        id: number;
         wallet: string;
         completed_quizzes: number[];
     }[]>;
-    getUser(id: string): Promise<{
-        id: string;
-        wallet: string;
-        completed_quizzes: number[];
-    }>;
-    putQuizComplete(id: string, query: any): any;
-    deleteUser(id: string): {
-        id: string;
-        wallet: string;
-        completed_quizzes: number[];
-    }[];
+    getUser(id: number): Promise<any>;
+    putQuizComplete(id: number, query: any): Promise<any>;
+    deleteUser(id: number): Promise<any>;
     postUser(user: UserDTO): number;
 }

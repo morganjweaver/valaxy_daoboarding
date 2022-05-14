@@ -10,30 +10,39 @@ export class UserService {
         return this.users;
     }
 
-    public async getUser(id: string) {
-        const user = this.users.find((user) => user.id === id);
-        if(user){
-            throw new HttpException('User not found', 404);
-        }
-        return user;
+    public getUser(id: number): Promise<any> {
+        const userId = Number(id);
+        return new Promise((resolve) => {
+            const user = this.users.findIndex((user) => user.id === userId);
+            if(user === -1){
+             throw new HttpException('User not found', 404);
+            }
+        return resolve(this.users);
+    });
     }
 
-    public putQuizComplete(id: string, quiz_id: number) {
-        const user = this.users.find((user) => user.id === id);
-        if(user){
+    public putQuizComplete(id: number, quiz_id: number):Promise<any> {
+        const userId = Number(id);
+        return new Promise((resolve) => {
+        const user = this.users.findIndex((user) => user.id === userId);
+        if(user === -1){
             throw new HttpException('User not found', 404);
         }
-        this.users[id]['completed_quizzes'] += quiz_id;
-        return this.users[id]['completed_quizzes'];
+        this.users[user]['completed_quizzes'].push(quiz_id);
+        return resolve(this.users[userId]);
+    });
     }
 
-    public deleteUser(id: string) {
-        const index = this.users.findIndex((user) => user.id === id);
+    public deleteUser(id: number):Promise<any> {
+        const userId = Number(id);
+        return new Promise((resolve) => {
+        const index = this.users.findIndex((user) => user.id === userId);
         if(index === -1){
             throw new HttpException('User not found', 404);
         }
         this.users.splice(index, 1);
-        return this.users;
+        return resolve(this.users);
+    });
     }
 
     public postUser(user: UserDTO) {

@@ -1,5 +1,5 @@
 export class UserDTO {
-    readonly id: string;
+    readonly id: number;
     readonly wallet: string;
     readonly completed_quizzes: number[];
 }

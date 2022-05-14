@@ -2,20 +2,12 @@ import { UserDTO } from './user.dto';
 export declare class UserService {
     private users;
     getUsers(): Promise<{
-        id: string;
+        id: number;
         wallet: string;
         completed_quizzes: number[];
     }[]>;
-    getUser(id: string): Promise<{
-        id: string;
-        wallet: string;
-        completed_quizzes: number[];
-    }>;
-    putQuizComplete(id: string, quiz_id: number): any;
-    deleteUser(id: string): {
-        id: string;
-        wallet: string;
-        completed_quizzes: number[];
-    }[];
+    getUser(id: number): Promise<any>;
+    putQuizComplete(id: number, quiz_id: number): Promise<any>;
+    deleteUser(id: number): Promise<any>;
     postUser(user: UserDTO): number;
 }

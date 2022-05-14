@@ -16,28 +16,37 @@ let UserService = class UserService {
     async getUsers() {
         return this.users;
     }
-    async getUser(id) {
-        const user = this.users.find((user) => user.id === id);
-        if (user) {
-            throw new common_1.HttpException('User not found', 404);
-        }
-        return user;
+    getUser(id) {
+        const userId = Number(id);
+        return new Promise((resolve) => {
+            const user = this.users.findIndex((user) => user.id === userId);
+            if (user === -1) {
+                throw new common_1.HttpException('User not found', 404);
+            }
+            return resolve(this.users);
+        });
     }
     putQuizComplete(id, quiz_id) {
-        const user = this.users.find((user) => user.id === id);
-        if (user) {
-            throw new common_1.HttpException('User not found', 404);
-        }
-        this.users[id]['completed_quizzes'] += quiz_id;
-        return this.users[id]['completed_quizzes'];
+        const userId = Number(id);
+        return new Promise((resolve) => {
+            const user = this.users.findIndex((user) => user.id === userId);
+            if (user === -1) {
+                throw new common_1.HttpException('User not found', 404);
+            }
+            this.users[user]['completed_quizzes'].push(quiz_id);
+            return resolve(this.users[userId]);
+        });
     }
     deleteUser(id) {
-        const index = this.users.findIndex((user) => user.id === id);
-        if (index === -1) {
-            throw new common_1.HttpException('User not found', 404);
-        }
-        this.users.splice(index, 1);
-        return this.users;
+        const userId = Number(id);
+        return new Promise((resolve) => {
+            const index = this.users.findIndex((user) => user.id === userId);
+            if (index === -1) {
+                throw new common_1.HttpException('User not found', 404);
+            }
+            this.users.splice(index, 1);
+            return resolve(this.users);
+        });
     }
     postUser(user) {
         return this.users.push(user);
