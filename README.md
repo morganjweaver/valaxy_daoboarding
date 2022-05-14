@@ -24,7 +24,7 @@
 
 ## Description
 
-HackMoney 2022 Team Valaxy project: DeFi/Web3 UNiversity.  Play to earn on the Oasis Paratime EVM. 
+Team Valaxy HackMoney project: A play-to-earn model that allows users to accrue web3 and DeFi knowledge by studying and completing quizzes to accrue NFTs using the Oasis Paratime EVM.
 
 ## Installation
 
